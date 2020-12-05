@@ -21,14 +21,42 @@ funciton getRandomNumber() {
 /* 
 console.log(Math.floor(Math.random() *26 +97); */
 
-var whenClicked = alert("Choose password criteria");
+//Here we ask the mployee if they are ready to selected password criteria
+/* var generate = confirm("Are you ready to select password criteria?"); */
+/* 
+function myFunction() {
+    document.getElementById("generate").onclick;
+} */
+
+document.querySelector('#generate').addEventListener('click', promptMe);
+
+function promptMe() {
+    var generate = prompt("Start");
+    alert (generate);
+}
+
+var whenClicked = prompt("Choose password criteria");
 var passwordLength = prompt("Choose password length must be between 8 - 128 characters");
-var Criteria = alert("Next select the following criteria");
-var characterTypes = prompt("Select the following password criteria");
-var lowerCase =
-var upperCase =
-var numberic =
-var specialCharacters = 
+var Criteria = prompt("Next select from the following criteria");
+var characterTypes = prompt("You will now select from the following password criteria, must select at least one");
+var lowerCase = prompt("Include lower case letters?");
+var upperCase = prompt("Include lower upper letters?");
+var numberic = prompt("Include numbers?");
+var specialCharacters = prompt("Include special Characters?");
+
+//Here if the employee is ready to start the process we run the following code block.
+if (whenClickedButton) {
+    alert(whenClicked);
+}
+
+if (whenClicked) {
+        alert(passwordLenth);
+}
+
+if (characterTypes) {
+        alert(lowerCase);
+}
+
 
 /* if 1 seleciton is not selected
     alert("You must select at least one character type"
