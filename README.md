@@ -46,8 +46,9 @@ J.K. Royston                                    | https://github.com/jxhnkndl
 
 Tutorials/Info                                  | Link
 ------------                                    | -------------
-Free images                                     | https://unsplash.com 
-Favicon generator                               | https://favicon.io
+How to create a strong password generator       | https://www.youtube.com/watch?v=xA2-4Vowprw
+Javascript password generato                    | https://www.youtube.com/watch?v=duNmhKgtcsI
+Character Set                                   | http://www.net-comber.com/charset.html
 
 
 ## Contributing
