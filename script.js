@@ -4,7 +4,7 @@ var generateBtn = document.querySelector("#generate");
 function passwordLength() {
   var length = 0;
 
-  var alphabet = /[a-zA-Z]/g
+  var alphabet = /[a-zA-Z]/
 
   while (length < 8 || length > 128) {
     length = prompt('Choose between 8 and 128 characters for your new password');
@@ -14,38 +14,38 @@ function passwordLength() {
   return length;
 }
 
-function charChoices() {
+function choices() {
   do {
     
-    var charUpper = confirm("Include uppercase letters?");
-    var charLower = confirm("Include lowercase letters?");
-    var charNum = confirm("Include numbers?");
-    var charSpecial = confirm("Include special characters?");
+    var upper = confirm("Include uppercase letters?");
+    var lower = confirm("Include lowercase letters?");
+    var num = confirm("Include numbers?");
+    var special = confirm("Include special characters?");
   
 
-  } while ((!charUpper && !charLower && !charNum && !charSpecial))
+  } while ((!upper && !lower && !num && !special))
 
-  var uppercase = {
+  var upperCase = {
     array: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'],
-    include: charUpper
+    include: upper
   }
 
-  var lowercase = {
+  var lowerCase = {
     array: ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'],
-    include: charLower
+    include: lower
   }
 
   var numbers = {
     array: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'],
-    include: charNum
+    include: num
   }
 
   var special = {
     array: ["!", '"', "#", "$", "%", "&", "'", "(", ")", "*", "+"],
-    include: charSpecial
+    include: special
   }
 
-  var characters = [uppercase, lowercase, numbers, special];
+  var characters = [upperCase, lowerCase, numbers, special];
 
   var passArr;
 
@@ -56,7 +56,7 @@ function charChoices() {
 
     } else if (passArr && type.include) {
       passArr = passArr.concat(type.array);
-      console.log(passArr);
+      
     }
   });
 
@@ -73,7 +73,7 @@ function generatePassword() {
 
   var password = "";
   var length = passwordLength();
-  var passwordArr = charChoices();
+  var passwordArr = choices();
 
 
   for (var i = 0; i < length; i++) {
