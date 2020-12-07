@@ -1,6 +1,8 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
+document.getElementById("generate").onclick = function () { alert("Welcome, you will select your password criteria in the following prompts"); };
+
 function passwordLength() {
   var length = 0;
 
