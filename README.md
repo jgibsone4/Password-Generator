@@ -31,7 +31,7 @@ https://jgibsone4.github.io/Password-Generator/
 
 I have attached screenshots that I referenced for my project.
 
-![Screenshot of Client Site](https://github.com/jgibsone4/jgibsone4-urhw2/blob/main/Assets/768-contact.png)
+![Screenshot of Client Site](https://github.com/jgibsone4/Password-Generator/blob/main/assets/03-javascript-homework-demo.png)
 
 
 
