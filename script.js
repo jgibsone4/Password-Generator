@@ -1,91 +1,122 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
+//onclickk added
 document.getElementById("generate").onclick = function () { alert("Welcome, you will select your password criteria in the following prompts"); };
 
-function passwordLength() {
-  var length = 0;
+// Add event listener to the generate button
+document.getElementById("generate").addEventListener("click", function(){
 
-  var alphabet = /[a-zA-Z]/
-
-  while (length < 8 || length > 128) {
-    length = prompt('Choose between 8 and 128 characters for your new password');
-
-  }
-
-  return length;
-}
-
-function choices() {
-  do {
-    
-    var upper = confirm("Include uppercase letters?");
-    var lower = confirm("Include lowercase letters?");
-    var num = confirm("Include numbers?");
-    var special = confirm("Include special characters?");
+//setting variables
+    var lowerCase = ("abcdefghijklmnopqrstuvwxyz");
+    var upperCase = ("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
+    var number = ("0123456789");
+    var specialEl = ("!@#$%^&*()?~/|:'><");
+    var password = "";
+    var selectEl = "";
+    var length = prompt("Make your selection between 8 and 128 characters");
   
-
-  } while ((!upper && !lower && !num && !special))
-
-  var upperCase = {
-    array: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'],
-    include: upper
-  }
-
-  var lowerCase = {
-    array: ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'],
-    include: lower
-  }
-
-  var numbers = {
-    array: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'],
-    include: num
-  }
-
-  var special = {
-    array: ["!", '"', "#", "$", "%", "&", "'", "(", ")", "*", "+"],
-    include: special
-  }
-
-  var characters = [upperCase, lowerCase, numbers, special];
-
-  var passArr;
-
-  
-  characters.forEach(type => {
-    if (!passArr && type.include) {
-      passArr = type.array;
-
-    } else if (passArr && type.include) {
-      passArr = passArr.concat(type.array);
-      
+    if (length < 8 || length > 128){
+      alert("You must select a length betwen 8 and 128 characters")
+      return
     }
+  
+    var lowerVar = confirm("Select if you want lowercase")
+    var upperVar = confirm("Select if you want uppercase")
+    var numberVar = confirm("Select if you want numbers")
+    var specialVar = confirm("Select if you want special characters")
+    var verify = 0;
+  
+    if (lowerVar == true || upperVar == true || numberVar == true || specialVar == true) {
+      verify += 1;
+    }
+  
+    if (verify == 0) {
+      alert("You have not selected a character Type, Please Try again.")
+      return
+    }
+  
+    function generatePWD() {
+      for (var i = 0; i <= length; i++) {
+        password = password + selectEl.charAt(Math.floor(Math.random() * Math.floor(selectEl.length - 1)));
+      }
+    }
+  
+    if (lowerVar && !upperVar && !numberVar && !specialVar) {
+      selectEl = lowerCase;
+      generatePWD();
+    }
+
+    else if (lowerVar && upperVar && !numberVar && !specialVar) {
+      selectEl = lowerCase + upperCase;
+      generatePWD();
+    }
+  
+  
+    else if (lowerVar && upperVar && numberVar && !specialVar) {
+      selectEl = lowerCase + upperCase + number;
+      generatePWD();
+    }
+  
+    else if (lowerVar && upperVar && numberVar && specialVar) {
+      selectEl = lowerCase + upperCase + number + specialEl;
+      generatePWD();
+    }
+ 
+    else if (lowerVar && !upperVar && numberVar && !specialVar) {
+      selectEl = lowerCase + number;
+      generatePWD();
+    }
+
+    else if (lowerVar && !upperVar && numberVar && specialVar) {
+      selectEl = lowerCase + number + specialEl;
+      generatePWD();
+    }
+  
+    else if (lowerVar && !upperVar && !numberVar && specialVar) {
+      selectEl = lowerCase + specialEl;
+      generatePWD();
+    }
+
+    else if (!lowerVar && upperVar && !numberVar && !specialVar) {
+      selectEl = upperCase;
+      generatePWD();
+    }
+  
+    else if (!lowerVar && upperVar && numberVar && !specialVar) {
+      selectEl = upperCase + number;
+      generatePWD();
+    }
+  
+    else if (!lowerVar && upperVar && numberVar && specialVar) {
+      selectEl = upperCase + number + specialEl;
+      generatePWD();
+    }
+
+    else if (!lowerVar && upperVar && !numberVar && specialVar) {
+      selectEl = upperCase + specialEl;
+      generatePWD();
+    }
+  
+    else if (!lowerVar && !upperVar && numberVar && !specialVar) {
+      selectEl = number;
+      generatePWD();
+    }
+  
+    else if (!lowerVar && !upperVar && numberVar && specialVar) {
+      selectEl = number + specialEl;
+      generatePWD();
+    }
+  
+    else if (!lowerVar && !upperVar && !numberVar && specialVar) {
+      selectEl = specialEl;
+      generatePWD();
+    }
+    document.getElementById("password").innerHTML = password;
+    console.log(password);
+  
   });
-
-  return passArr;
-}
-
-
-function randomNumber(length) {
-  return Math.floor(Math.random() * length);
-}
-
-
-function generatePassword() {
-
-  var password = "";
-  var length = passwordLength();
-  var passwordArr = choices();
-
-
-  for (var i = 0; i < length; i++) {
-    var randomIndex = randomNumber(passwordArr.length);
-    password += passwordArr[randomIndex];
-  }
-
-  return password;
-}
-
+  
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
@@ -97,3 +128,4 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+
