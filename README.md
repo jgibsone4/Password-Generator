@@ -47,7 +47,7 @@ J.K. Royston                                    | https://github.com/jxhnkndl
 Tutorials/Info                                  | Link
 ------------                                    | -------------
 How to create a strong password generator       | https://www.youtube.com/watch?v=xA2-4Vowprw
-Javascript password generato                    | https://www.youtube.com/watch?v=duNmhKgtcsI
+Javascript password generato r                  | https://www.youtube.com/watch?v=duNmhKgtcsI
 Character Set                                   | http://www.net-comber.com/charset.html
 
 
