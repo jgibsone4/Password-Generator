@@ -1,7 +1,6 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-<<<<<<< HEAD
 //onclickk added
 document.getElementById("generate").onclick = function () { alert("Welcome, you will select your password criteria in the following prompts"); };
 
@@ -16,30 +15,6 @@ document.getElementById("generate").addEventListener("click", function(){
     var password = "";
     var selectEl = "";
     var length = prompt("Make your selection between 8 and 128 characters");
-=======
-document.getElementById("generate").onclick = function () { alert("Welcome, you will select your password criteria in the following prompts"); };
-
-function passwordLength() {
-  var length = 0;
-
-  var alphabet = /[a-zA-Z]/
-
-  while (length < 8 || length > 128) {
-    length = prompt('Choose between 8 and 128 characters for your new password');
-
-  }
-
-  return length;
-}
-
-function choices() {
-  do {
-    
-    var upper = confirm("Include uppercase letters?");
-    var lower = confirm("Include lowercase letters?");
-    var num = confirm("Include numbers?");
-    var special = confirm("Include special characters?");
->>>>>>> 60f751cbe69c24680f2ea9b09aae09c74eedf746
   
     if (length < 8 || length > 128){
       alert("You must select a length betwen 8 and 128 characters")
