@@ -98,7 +98,7 @@ document.getElementById("generate").addEventListener("click", function () {
     generatePWD();
   }
   document.getElementById("password").innerHTML = password;
-  console.log(password);
+  
 });
 
 // Write password to the #password input
